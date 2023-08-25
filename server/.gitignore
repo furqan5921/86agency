@@ -1,0 +1,32 @@
+# Node.js / NPM
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+
+# IDE/Editor specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Log files
+*.log
+
+# Test coverage
+coverage/
+
+# Build output
+build/
+dist/
+
+# Dependency lock files
+package-lock.json
+
+
+# Environment variables file (if it's not part of your repository)
+config.env

@@ -16,7 +16,7 @@ const createUser = asyncHandler(async (req, res) => {
         await newUser.save();
         const { _id, email } = newUser;
         const token = await generateToken(_id, email);
-        res.status(201).send({ token });
+        res.status(201).send({ token, user: newUser });
     } catch (error) {
         throw new Error('Error creating user');
     }

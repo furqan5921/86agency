@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8080;
 // Import the database connection function
 const connection = require("./config/DBconnect");
 
-// Import user and post routers
+// Import user,post and analyctics routers
 const userRouter = require("./routes/userRoute");
 const postRouter = require("./routes/postRoute");
 const analyticsRouter = require("./routes/analyticRoute")
@@ -27,7 +27,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Define routes for user and post operations
+// Define routes for user,post and analytics operations
 app.use("/users", userRouter);
 app.use("/posts", postRouter);
 app.use("/analytics", analyticsRouter)
@@ -39,7 +39,7 @@ app.use(errorHandler);
 // Connect to the database
 connection();
 
-// Start the server and listen on the specified port
+// Start the server
 app.listen(PORT, () => {
     console.log('Server is listening on port ' + PORT);
 });

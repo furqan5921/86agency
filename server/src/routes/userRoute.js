@@ -1,7 +1,7 @@
 const app = require("express").Router();
 const { createUser, getUserById, updateUser, deleteUser, getTotalUsers, getTopActiveUsers } = require("../controller/userCtrl");
 
-
+// User Endpoints
 
 // Route to create a new user
 app.post('/', createUser);
@@ -14,5 +14,6 @@ app.put('/:id', updateUser);
 
 // Route to delete a user by their ID
 app.delete('/:id', deleteUser);
+
 
 module.exports = app;  

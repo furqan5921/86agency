@@ -1,6 +1,19 @@
 const Post = require('../models/postModel');
 const asyncHandler = require("express-async-handler");
 
+// Get all posts
+const getAllPosts = asyncHandler(async (req, res) => {
+    try {
+        const posts = await Post.find()
+            .populate('user_id')
+            .exec();
+
+        res.send(posts);
+    } catch (error) {
+        throw new Error('Error retrieving all posts');
+    }
+});
+
 // Create a new post
 const createPost = asyncHandler(async (req, res) => {
     try {
@@ -47,6 +60,7 @@ const updatePost = asyncHandler(async (req, res) => {
 
 // Delete a post by ID
 const deletePost = asyncHandler(async (req, res) => {
+    console.log("coming in delete post")
     try {
         const post = await Post.findByIdAndDelete(req.params.id);
         if (!post) {
@@ -118,6 +132,7 @@ const getTopLikedPosts = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
+    getAllPosts,
     createPost,
     getPostById,
     updatePost,

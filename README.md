@@ -48,10 +48,16 @@ This assignment entails the creation of a simple yet comprehensive social media 
    - ### Registration
 <img src="https://i.imgur.com/RyHTvli.png" alt="Registration" />
 
-
-
    - ### Post Form 
 <img src="https://i.imgur.com/oHAHxcb.png" alt="Post Form" />
 
+   - ### User Analytics 
+<img src="https://i.imgur.com/xsPiDFf.png" alt="Post Form" />
+
+   - ### Post Analytics 
+<img src="https://i.imgur.com/ScJoTiR.png" alt="Post Form" />
+
+   - ### User List 
+<img src="https://i.imgur.com/RIJxBZQ.png" alt="Post Form" />
 
 

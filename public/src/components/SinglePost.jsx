@@ -97,7 +97,6 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
         isClosable: true,
         duration: 3000,
       });
-
     }
     setLoading(true);
     try {
@@ -140,7 +139,7 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
     <Card>
       <CardBody color={"#808090"}>
         <Stack mt="6" spacing="3">
-          <Heading size="md">Posted By : {user.name}</Heading>
+          {user.name && <Heading size="md">Posted By : {user.name}</Heading>}
           <Text>Description : {content}</Text>
           <Text color="blue.600" fontSize="2xl">
             Likes : {likes}

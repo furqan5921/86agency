@@ -3,14 +3,11 @@ import Navbar from "../components/navbar/Navbar";
 import { Button, Flex, Heading, Stack } from "@chakra-ui/react";
 import UserAnalytics from "../components/UserAnalytics";
 import PostAnalytics from "../components/PostAnalytics";
-import LoaderComponent from "../components/LoaderSpinnner";
+
 
 const Analytics = () => {
   const [mode, setMode] = useState("user");
-  const [loading, setLoading] = useState(false);
-  if (loading) {
-    return <LoaderComponent visiblity={loading} />;
-  }
+ 
   return (
     <div>
       <Navbar />
@@ -42,8 +39,8 @@ const Analytics = () => {
             Post Analytics
           </Button>
         </Flex>
-        {mode === "user" && <UserAnalytics setLoading={setLoading} />}
-        {mode === "post" && <PostAnalytics setLoading={setLoading} />}
+        {mode === "user" && <UserAnalytics />}
+        {mode === "post" && <PostAnalytics />}
       </Stack>
     </div>
   );

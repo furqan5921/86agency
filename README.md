@@ -46,8 +46,8 @@ This assignment entails the creation of a simple yet comprehensive social media 
 ## Glipms of project
 
    - ### Registration
-<img src="blob:https://imgur.com/a/MzOxV40" alt="Registration" />
-<img src="https://imgur.com/a/MzOxV40" alt="homepage" />
+<img src="https://i.imgur.com/8TLCXqR.png" alt="Registration" />
+
 
 
    - ### Post Form 

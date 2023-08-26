@@ -60,4 +60,7 @@ This assignment entails the creation of a simple yet comprehensive social media 
    - ### User List 
 <img src="https://i.imgur.com/RIJxBZQ.png" alt="Post Form" />
 
+   - ### Post List 
+<img src="https://i.imgur.com/c7aDS01.png" alt="Post Form" />
+
 

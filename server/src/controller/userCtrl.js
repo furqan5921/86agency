@@ -3,6 +3,16 @@ const asyncHandler = require("express-async-handler");
 const validateMongodbId = require("../utils/validateMongodbId");
 const { generateToken } = require("../config/generateToken");
 
+// Get all users
+const getAllUsers = asyncHandler(async (req, res) => {
+    try {
+        const users = await User.find()
+
+        res.send(users);
+    } catch (error) {
+        throw new Error('Error retrieving all users');
+    }
+});
 
 // Create a new user
 const createUser = asyncHandler(async (req, res) => {
@@ -92,4 +102,4 @@ const getTopActiveUsers = asyncHandler(async (req, res) => {
 });
 
 
-module.exports = { createUser, getUserById, updateUser, deleteUser, getTotalUsers, getTopActiveUsers };
+module.exports = { getAllUsers, createUser, getUserById, updateUser, deleteUser, getTotalUsers, getTopActiveUsers };

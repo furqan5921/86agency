@@ -13,6 +13,7 @@ import {
 import React from "react";
 import { placeholderApi } from "../utils/baseUrl";
 import PostModal from "./post/PostModal";
+import { Link } from "react-router-dom";
 
 const SinglePost = ({ postId, content, likes, user, setPostData }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -131,7 +132,7 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
     <Card>
       <CardBody color={"#808090"}>
         <Stack mt="6" spacing="3">
-          <Heading size="md">Author : {user.name}</Heading>
+          <Heading size="md">Posted By : {user.name}</Heading>
           <Text>Description : {content}</Text>
           <Text color="blue.600" fontSize="2xl">
             Likes : {likes}
@@ -183,6 +184,17 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
         >
           Delete Post
         </Button>
+        <Link to={`/post/${postId}`}>
+          <Button
+            //   onClick={handleDelete}
+            bg={"#1f64ff"}
+            color={"#FFFFFF"}
+            variant={"outline"}
+            w={"100%"}
+          >
+            View Post
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

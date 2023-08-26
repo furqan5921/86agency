@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -16,7 +15,8 @@ import {
 import React from "react";
 import icon from "../../assets/icon.png";
 import { AiOutlineUnorderedList } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+
+import NavLinks from "./NavLinks";
 const Sidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
@@ -60,26 +60,7 @@ const Sidebar = () => {
 
           <DrawerBody>
             <Stack align={"center"} spacing={"8"}>
-              <NavLink to={"/postForm"}>
-                <Button onClick={onClose} color={"#808090"} variant={"link"}>
-                  PostForm
-                </Button>
-              </NavLink>
-              <NavLink to={"/userList"}>
-                <Button onClick={onClose} color={"#808090"} variant={"link"}>
-                  UserList
-                </Button>
-              </NavLink>
-              <NavLink to={"/postList"}>
-                <Button onClick={onClose} color={"#808090"} variant={"link"}>
-                  PostList
-                </Button>
-              </NavLink>
-              <NavLink to={"/analytics"}>
-                <Button onClick={onClose} color={"#808090"} variant={"link"}>
-                  Analytics
-                </Button>
-              </NavLink>
+              <NavLinks />
             </Stack>
           </DrawerBody>
         </DrawerContent>

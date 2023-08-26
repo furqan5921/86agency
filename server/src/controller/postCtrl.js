@@ -30,8 +30,9 @@ const createPost = asyncHandler(async (req, res) => {
 
 // Get a post by ID
 const getPostById = asyncHandler(async (req, res) => {
+
     try {
-        const post = await Post.findById(req.params.id);
+        const post = await Post.findById(req.params.id).populate('user_id').exec();;
         if (!post) {
             throw new Error('Post not found');
         }

@@ -161,7 +161,6 @@ export const CreateForm = ({ updateUser }) => {
                 onChange={handleChange}
                 placeholder="Enter your bio Max 200 characters..."
                 borderRadius={"5px"}
-                isRequired
                 _placeholder={{
                   fontSize: "14px",
                   color: "#808090",

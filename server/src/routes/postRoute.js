@@ -12,7 +12,7 @@ app.get('/', authMiddleware, getAllPosts);
 app.post('/', authMiddleware, createPost);
 
 // Route to retrieve a post by ID
-app.get('/:id', getPostById);
+app.get('/:id', authMiddleware, getPostById);
 
 // Route to update a post by ID
 app.put('/:id', authMiddleware, updatePost);

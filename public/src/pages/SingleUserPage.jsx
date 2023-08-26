@@ -12,9 +12,11 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import { placeholderApi } from "../utils/baseUrl";
 import UserModal from "../components/userForm/UserModal";
+import LoaderComponent from "../components/LoaderSpinnner";
 
 const SingleUserPage = () => {
   const toast = useToast();
+  const [loading, setLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -25,10 +27,12 @@ const SingleUserPage = () => {
   const [user, setUser] = useState({});
 
   const getUser = async () => {
+    setLoading(true);
     try {
       const res = await placeholderApi(`users/${id}`, { headers: header });
       if (res.data) {
         setUser(res.data);
+        setLoading(false);
       }
     } catch (error) {
       toast({
@@ -37,6 +41,7 @@ const SingleUserPage = () => {
         isClosable: true,
         duration: 3000,
       });
+      setLoading(false);
     }
   };
   const handleDelete = async () => {
@@ -67,6 +72,9 @@ const SingleUserPage = () => {
     getUser();
     // eslint-disable-next-line
   }, []);
+  if (loading) {
+    return <LoaderComponent />;
+  }
   return (
     <>
       <Navbar />

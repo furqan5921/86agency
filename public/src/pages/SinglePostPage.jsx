@@ -3,17 +3,19 @@ import Navbar from "../components/navbar/Navbar";
 import { Box, Heading, Text, useToast } from "@chakra-ui/react";
 import { placeholderApi } from "../utils/baseUrl";
 import { useParams } from "react-router-dom";
+import LoaderComponent from "../components/LoaderSpinnner";
 
 const SinglePostPage = () => {
   const toast = useToast();
   const { id } = useParams();
   const [post, setPost] = useState({});
-
+  const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
   const header = {
     Authorization: `Bearer ${token}`,
   };
   const getPost = async () => {
+    setLoading(true);
     try {
       const res = await placeholderApi.get(`posts/${id}`, {
         headers: header,
@@ -21,21 +23,25 @@ const SinglePostPage = () => {
       console.log(res);
       if (res.data) {
         setPost(res.data);
+        setLoading(false);
       }
     } catch (error) {
-      console.error(error.message);
       toast({
         title: "An error occured while retrieving the post",
         status: "error",
         isClosable: true,
         duration: 3000,
       });
+      setLoading(false);
     }
   };
   useEffect(() => {
     getPost();
     // eslint-disable-next-line
   }, []);
+  if (loading) {
+    return <LoaderComponent />;
+  }
   return (
     <>
       <Navbar />

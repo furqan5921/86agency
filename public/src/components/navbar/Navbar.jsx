@@ -13,6 +13,7 @@ const Navbar = () => {
       h={"80px"}
       padding={"14px"}
       bg={"#c2dafb"}
+      zIndex={999}
     >
       <Flex
         bg={"#FFFFFF"}

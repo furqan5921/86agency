@@ -10,13 +10,14 @@ import {
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { placeholderApi } from "../utils/baseUrl";
 import PostModal from "./post/PostModal";
 import { Link } from "react-router-dom";
 
 const SinglePost = ({ postId, content, likes, user, setPostData }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
   const header = {
     Authorization: `Bearer ${token}`,
@@ -50,6 +51,7 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
     }
   };
   const handleLike = async () => {
+    setLoading(true);
     try {
       const res = await placeholderApi.post(
         `posts/${postId}/like`,
@@ -58,6 +60,7 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
       );
       console.log(res);
       if (res.data) {
+        setLoading(false);
         toast({
           title: "You have Liked the post",
           status: "success",
@@ -77,6 +80,7 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
         });
       }
     } catch (error) {
+      setLoading(false);
       toast({
         title: error.message,
         status: "error",
@@ -93,7 +97,9 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
         isClosable: true,
         duration: 3000,
       });
+
     }
+    setLoading(true);
     try {
       const res = await placeholderApi.post(
         `posts/${postId}/unlike`,
@@ -101,6 +107,7 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
         { headers: header }
       );
       if (res.data) {
+        setLoading(false);
         toast({
           title: "You have Unliked the post",
           status: "success",
@@ -120,6 +127,7 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
         });
       }
     } catch (error) {
+      setLoading(false);
       toast({
         title: error.message,
         status: "error",
@@ -143,6 +151,7 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
             variant={"outline"}
             size={"sm"}
             onClick={handleLike}
+            isLoading={loading}
           >
             Like Post
           </Button>
@@ -152,6 +161,7 @@ const SinglePost = ({ postId, content, likes, user, setPostData }) => {
             variant={"outline"}
             size={"sm"}
             onClick={handleDislike}
+            isLoading={loading}
           >
             Unlike Post
           </Button>

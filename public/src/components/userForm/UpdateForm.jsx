@@ -3,6 +3,7 @@ import Navbar from "../navbar/Navbar";
 import { Box, Grid, Heading, useToast } from "@chakra-ui/react";
 import { placeholderApi } from "../../utils/baseUrl";
 import SingleUser from "../SingleUser";
+import LoaderComponent from "../LoaderSpinnner";
 
 const UpdateForm = () => {
   const token = localStorage.getItem("token");
@@ -10,13 +11,16 @@ const UpdateForm = () => {
     Authorization: `Bearer ${token}`,
   };
   const toast = useToast();
+  const [loading, setLoading] = useState(false);
   const [userList, setUserList] = useState([]);
   console.log(userList);
   const getAllUsers = async () => {
+    setLoading(true);
     try {
       const res = await placeholderApi.get("users", { headers: header });
       if (res.data) {
         setUserList(res.data);
+        setLoading(false);
       }
     } catch (error) {
       toast({
@@ -27,12 +31,16 @@ const UpdateForm = () => {
         duration: 3000,
         isClosable: true,
       });
+      setLoading(false);
     }
   };
   useEffect(() => {
     getAllUsers();
     // eslint-disable-next-line
   }, []);
+  if (loading) {
+    return <LoaderComponent visiblity={loading} />;
+  }
   return (
     <>
       <Navbar />

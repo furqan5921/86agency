@@ -3,13 +3,16 @@ import Navbar from "../components/navbar/Navbar";
 import { Box, Grid, Heading, useToast } from "@chakra-ui/react";
 import { placeholderApi } from "../utils/baseUrl";
 import SinglePost from "../components/SinglePost";
+import LoaderComponent from "../components/LoaderSpinnner";
 
 const PostList = () => {
   const token = localStorage.getItem("token");
   const toast = useToast();
+  const [loading, setLoading] = useState(false);
   const [postData, setPostData] = useState([]);
-  
+
   const getPosts = async () => {
+    setLoading(true);
     try {
       const header = {
         Authorization: `Bearer ${token}`,
@@ -17,6 +20,7 @@ const PostList = () => {
       const res = await placeholderApi.get("posts", { headers: header });
       if (res.data) {
         setPostData(res.data);
+        setLoading(false);
       }
     } catch (error) {
       toast({
@@ -27,13 +31,16 @@ const PostList = () => {
         duration: 3000,
         isClosable: true,
       });
+      setLoading(false);
     }
   };
   useEffect(() => {
     getPosts();
     // eslint-disable-next-line
   }, []);
-
+  if (loading) {
+    return <LoaderComponent visiblity={loading} />;
+  }
   return (
     <>
       <Navbar />

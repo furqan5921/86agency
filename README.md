@@ -29,9 +29,18 @@ This assignment entails the creation of a simple yet comprehensive social media 
    * Git
 
 ## Starting Backend
- - Open this project in code Editor and open terminal or command prompt.
+ - Open this project in Code Editor and open the terminal or command prompt.
  - Navigate to the server directory using the 'cd' command
  - Install the required dependencies by running the following command
    - npm install
  - After the installation is complete, start the backend server using the following command
    - npm run dev
+
+## Starting Frontend
+ - Open another terminal or command prompt.
+ - Navigate to the public directory using the 'cd' command
+ - Install the required dependencies by running the following command
+   - npm install
+ - After the installation is complete, start the frontend using the following command
+   - npm start
+

@@ -51,7 +51,7 @@ This assignment entails the creation of a simple yet comprehensive social media 
 
 
    - ### Post Form 
-<img src="blob:https://imgur.com/a/SgBoYFx" alt="Post Form" />
+<img src="https://i.imgur.com/oHAHxcb.png" alt="Post Form" />
 
 
 

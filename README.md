@@ -25,7 +25,6 @@ This assignment entails the creation of a simple yet comprehensive social media 
  - ### Other Tools and Libraries 
    * NPM
    * React Icons
-   * SMTP for sending email
    * Git
 
 ## Starting Backend

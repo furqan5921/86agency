@@ -1,5 +1,5 @@
 * [Click Here](https://86agency.vercel.app/) to view the deployed website.
- <p align="center"><img  width="200" src="blob:https://i.imgur.com/OGchCCO.png"/img> </p>
+ <p align="center"><img  width="200" src="blob:https://imgur.com/a/VsJ8wkT"/img> </p>
 <p>
 
 <p>
@@ -43,4 +43,15 @@ This assignment entails the creation of a simple yet comprehensive social media 
    - npm install
  - After the installation is complete, start the frontend using the following command
    - npm start
+
+## Glipms of project
+
+   - ### Registration 
+<img src="https://imgur.com/a/MzOxV40" alt="Registration" />
+
+
+   - ### Post Form 
+<img src="https://imgur.com/a/SgBoYFx" alt="Post Form" />
+
+
 

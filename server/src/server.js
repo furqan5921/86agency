@@ -32,6 +32,11 @@ app.use("/users", userRouter);
 app.use("/posts", postRouter);
 app.use("/analytics", analyticsRouter)
 
+//Route for testing purpose
+app.use("/", (req, res) => {
+    res.send("For testing purposes")
+})
+
 // Handle not found and error middleware
 app.use(notFound);
 app.use(errorHandler);
